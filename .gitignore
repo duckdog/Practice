@@ -1,0 +1,10 @@
+src/lib/
+include/
+Windows/
+*.sdf
+*.opensdf
+*.exe
+*.pdb
+*.ilk
+Debug/
+Release/
