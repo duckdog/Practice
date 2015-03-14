@@ -5,8 +5,8 @@
 ## Fhase1
 
 - 敵
-	カメ(Shellcreeper)
-	3体
+    カメ(Shellcreeper)
+    3体
 
 - アイテム
-	コイン
+    コイン
