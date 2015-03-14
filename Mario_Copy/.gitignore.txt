@@ -1,0 +1,10 @@
+include/
+Windows/
+Debug/
+Release/
+
+*.sdf
+*.exe
+*.ilk
+*.pdb
+*.suo

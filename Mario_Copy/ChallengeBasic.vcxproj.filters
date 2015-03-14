@@ -1,0 +1,165 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="_Header">
+      <UniqueIdentifier>{e3328b72-d816-45bb-a565-b60a8e5c43f9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="_Lib">
+      <UniqueIdentifier>{64bf6fe1-3a56-4217-b142-c4b8acad9b8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Origin">
+      <UniqueIdentifier>{26e5a372-40c1-4914-b728-65c406ebbc96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Origin\Object">
+      <UniqueIdentifier>{292b6b4f-0b69-437a-89c4-ef78b07a4ea3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Origin\Scene">
+      <UniqueIdentifier>{657f5c6a-146c-4a71-be43-9f2e8b16ab8d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Origin\System">
+      <UniqueIdentifier>{e08b0eb9-67ad-4838-9440-6cd20124ce04}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Origin\System\環境">
+      <UniqueIdentifier>{ad23460c-537a-4278-951b-80c43ca80221}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Origin\System\シーン管理">
+      <UniqueIdentifier>{98dfa684-74f1-4776-954b-7cb2a2c03b23}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\lib\appEnv.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\audio.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\camera2D.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\fileUtil.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\glExt.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\glfwWindow.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\graph.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\matrix.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\os_win.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\png.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\random.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\texture.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\utils.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\wav.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\glTexture.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\font.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\lib\gamePad.cpp">
+      <Filter>_Lib</Filter>
+    </ClCompile>
+    <ClCompile Include="src\origin\System\scene_manager.cpp">
+      <Filter>Origin\System\シーン管理</Filter>
+    </ClCompile>
+    <ClCompile Include="src\origin\main.cpp">
+      <Filter>Origin</Filter>
+    </ClCompile>
+    <ClCompile Include="src\origin\System\environment.cpp">
+      <Filter>Origin\System\環境</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\lib\appEnv.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\audio.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\camera2D.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\defines.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\fileUtil.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\glExt.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\glfwWindow.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\graph.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\matrix.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\os.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\os_win.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\png.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\random.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\texture.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\utils.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\vector.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\wav.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\glTexture.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\font.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\lib\gamePad.hpp">
+      <Filter>_Header</Filter>
+    </ClInclude>
+    <ClInclude Include="src\origin\System\scene_manager.h">
+      <Filter>Origin\System\シーン管理</Filter>
+    </ClInclude>
+    <ClInclude Include="src\origin\common.h">
+      <Filter>Origin</Filter>
+    </ClInclude>
+    <ClInclude Include="src\origin\System\game_player.h">
+      <Filter>Origin\System\環境</Filter>
+    </ClInclude>
+    <ClInclude Include="src\origin\System\environment.h">
+      <Filter>Origin\System\環境</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
