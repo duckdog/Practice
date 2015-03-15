@@ -1,5 +1,4 @@
-﻿
-#pragma once
+﻿#pragma once
 
 //
 // テクスチャ管理
@@ -24,7 +23,6 @@ public:
   Texture();
   
 	explicit Texture(const std::string& filename);
-	~Texture();
 
   // サイズを返す
   int width() const;

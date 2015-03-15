@@ -1,5 +1,4 @@
-﻿
-#pragma once
+﻿#pragma once
 
 //
 // 基本的な定義
@@ -21,12 +20,13 @@ typedef unsigned char  u_char;
 typedef unsigned int   u_int;
 typedef unsigned long  u_long;
 
+// GLFWでglu.hとglext.hをインクルードするよう指示
+#define GLFW_INCLUDE_GLU
+#define GLFW_INCLUDE_GLEXT
+
 
 // Windows特有の定義
 #if defined (_MSC_VER)
-
-// Eigenの16バイトアライメントは無効
-#define EIGEN_DONT_ALIGN
 
 // 文字リテラルをutf-8に
 // FIXME:パス名に英数字以外を使うと読めない
@@ -45,9 +45,11 @@ typedef unsigned long  u_long;
 
 // GLEWのリンク形式
 #define GLEW_STATIC
-// GLFWのリンク形式(Windows)
-#define GLFW_DLL
+// FTGLのリンク形式を指定
+#define FTGL_LIBRARY_STATIC
 
+// windows.hからほとんど使われない定義を除外
+#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 
 #endif

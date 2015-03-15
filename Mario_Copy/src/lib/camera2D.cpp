@@ -1,5 +1,4 @@
-﻿
-//
+﻿//
 // カメラ(2D向け)
 //
 
@@ -13,10 +12,6 @@ Camera2D::Camera2D() :
   z_(1.0f)
 {
   DOUT << "Camera()" << std::endl;
-}
-  
-Camera2D::~Camera2D() {
-  DOUT << "~Camera()" << std::endl;
 }
   
   

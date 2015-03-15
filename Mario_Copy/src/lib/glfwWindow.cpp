@@ -1,5 +1,4 @@
-﻿
-//
+﻿//
 // GLFWのWindow管理
 //
 
@@ -11,7 +10,11 @@
 
 // リンクするライブラリの指示(Windows)
 #if defined (_MSC_VER)
-#pragma comment(lib, "glfw3dll.lib")
+#ifdef DEBUG
+#pragma comment(lib, "glfw3d.lib")
+#else
+#pragma comment(lib, "glfw3.lib")
+#endif
 #pragma comment(lib, "opengl32.lib")
 #endif
 
@@ -39,18 +42,6 @@ GlfwWindow::GlfwWindow(const int width, const int height,
   if (!initGlExt()) {
     throw "Can't use OpenGL extensions.";
   }
-
-#if 0
-  // TIPS:Windowsの古いグラフィックカードで画面の更新同期が取れないための対策
-  if (isVsyncSwap()) {
-    bool do_swap = VsyncSwapInterval(1);
-    DOUT << "VsyncSwapInterval is " << do_swap << std::endl;
-  }
-  else {
-    DOUT << "Can't use VsyncSwapInterval" << std::endl;
-  }
-#endif
-    
 }
 
 GlfwWindow::~GlfwWindow() {
@@ -60,6 +51,5 @@ GlfwWindow::~GlfwWindow() {
   glfwTerminate();
 }
 
-GLFWwindow* GlfwWindow::operator()() { return window_; }
-const GLFWwindow* GlfwWindow::operator()() const { return window_; }
-  
+GLFWwindow* const GlfwWindow::operator()() { return window_; }
+const GLFWwindow* const GlfwWindow::operator()() const { return window_; }

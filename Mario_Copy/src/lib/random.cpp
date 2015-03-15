@@ -1,5 +1,4 @@
-﻿
-//
+﻿//
 // 乱数
 //
 
@@ -17,22 +16,22 @@ void Random::setSeed(const u_int new_seed) {
 }
   
 // [0, last) を返す
-int Random::fromZeroToLast(const int last) {
+int Random::operator()(const int last) {
   return engine_() % last;
 }
 
 // [first, last] を返す
-int Random::fromFirstToLast(const int first, const int last) {
-  return first + fromZeroToLast(last - first + 1);
+int Random::operator()(const int first, const int last) {
+  return first + operator()(last - first + 1);
 }
 
   
 // [0.0f, 1.0f] を返す
-float Random::fromZeroToOne() {
+float Random::operator()() {
   return dist_zero_to_one_(engine_);
 }
 
 // [first, last] を返す
-float Random::fromFirstToLast(const float first, const float last) {
-  return first + (last - first) * fromZeroToOne();
+float Random::operator()(const float first, const float last) {
+  return first + (last - first) * operator()();
 }

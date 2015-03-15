@@ -1,5 +1,4 @@
-﻿
-//
+﻿//
 // OS依存処理(OSX版)
 //
 
@@ -12,15 +11,11 @@
 
 
 Os::Os() {
-DOUT << "Os()" << std::endl;
+  DOUT << "Os()" << std::endl;
 
-std::string path = currentPath();
-resource_path_ = path + "res/";
-document_path_ = path;
-}
-
-Os::~Os() {
-DOUT << "~Os()" << std::endl;
+  std::string path = currentPath();
+  resource_path_ = path + "res/";
+  document_path_ = path;
 }
 
   

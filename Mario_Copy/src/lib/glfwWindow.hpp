@@ -1,5 +1,4 @@
-﻿
-#pragma once
+﻿#pragma once
 
 //
 // GLFWのWindow管理
@@ -19,12 +18,12 @@ public:
 
   ~GlfwWindow();
 
-  // このクラスはコピー禁止
+  // TIPS:このクラスはコピー禁止
   GlfwWindow(const GlfwWindow&) = delete;
   GlfwWindow& operator=(const GlfwWindow&) = delete;
 
   
-  GLFWwindow* operator()();
-  const GLFWwindow* operator()() const;
+  GLFWwindow* const operator()();
+  const GLFWwindow* const operator()() const;
   
 };

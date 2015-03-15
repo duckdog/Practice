@@ -95,6 +95,13 @@ Buffer::Buffer(const std::string& path) {
                wav_data.sampleRate());
 }
 
+Buffer::Buffer() {
+  DOUT << "Buffer()" << std::endl;
+
+  // バッファを１つ確保
+  alGenBuffers(1, &id_);
+}
+
 Buffer::~Buffer() {
   DOUT << "~Buffer()" << std::endl;
 
@@ -105,6 +112,11 @@ Buffer::~Buffer() {
   
 // バッファの識別子
 ALuint Buffer::id() const { return id_; }
+
+void Buffer::bind(const bool stereo,
+                  const void* data, const u_int size, const u_int rate) const {
+  alBufferData(id_, stereo ? AL_FORMAT_STEREO16 : AL_FORMAT_MONO16, data, size, rate);
+}
 
 
 // ソースの管理を代行
@@ -205,6 +217,26 @@ float Source::currentTime() const {
   ALfloat current_time_sec;
   alGetSourcef(id_, AL_SEC_OFFSET, &current_time_sec);
   return current_time_sec;
+}
+
+
+void Source::queueBuffer(const Buffer& buffer) const {
+  ALuint buffers = buffer.id();
+  alSourceQueueBuffers(id_, 1, &buffers);
+}
+
+ALuint Source::unqueueBuffer() const {
+  ALuint buffer;
+  alSourceUnqueueBuffers(id_, 1, &buffer);
+
+  return buffer;
+}
+
+int Source::processed() const {
+  int processed;
+  alGetSourcei(id_, AL_BUFFERS_PROCESSED, &processed);
+      
+  return processed;
 }
 
 

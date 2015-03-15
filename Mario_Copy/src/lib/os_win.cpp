@@ -1,14 +1,12 @@
-﻿
-//
+﻿//
 // OS依存処理(Windows版)
 //
+
+#if defined (_MSC_VER)
 
 #include "os_win.hpp"
 #include <iostream>
 #include <streambuf>
-
-
-#if defined (_MSC_VER)
 
 
 std::streambuf::int_type DbgStreambuf::overflow(int_type c) {

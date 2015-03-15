@@ -1,5 +1,4 @@
-﻿
-//
+﻿//
 // アプリの実行環境
 //
 
@@ -47,6 +46,9 @@ AppEnv::AppEnv(const int width, const int height,
   glfwSetMouseButtonCallback(window_(), mouseButtonCallback);
   glfwSetCursorPosCallback(window_(), mouseMoveCallback);
 
+  // GamePad
+  gamepads_ = initGamePad();
+  
   glEnable(GL_POINT_SMOOTH);
   glEnable(GL_LINE_SMOOTH);
 
@@ -63,23 +65,26 @@ AppEnv::AppEnv(const int width, const int height,
   }
 }
 
-AppEnv::~AppEnv() {
-  DOUT << "~AppEnv()" << std::endl;
-}
-
 
 // アプリウインドウが開いてるならtrueを返す
 bool AppEnv::isOpen() {
   return !glfwWindowShouldClose(window_());
 }
 
-// 描画準備
-void AppEnv::setupDraw() {
+// GLFWのハンドルを返却
+// TIPS:const版も定義
+// TIPS:*の右側のconstはポインタ値をconstにする
+GLFWwindow* const AppEnv::getGlfwHandle() { return window_(); }
+const GLFWwindow* const AppEnv::getGlfwHandle() const {return window_(); }
+
+
+// アプリ更新処理開始
+void AppEnv::begin() {
   glViewport(viewport_ofs_.x(), viewport_ofs_.y(),
              viewport_size_.x(), viewport_size_.y());
     
   // ウインドウの内容を指定色で消去
-  glClearColor(bg_color_.red(), bg_color_.green(), bg_color_.blue(), bg_color_.alpha());
+  glClearColor(bg_color_.r(), bg_color_.g(), bg_color_.b(), bg_color_.a());
   glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
   // 半透明描画指示
@@ -87,8 +92,12 @@ void AppEnv::setupDraw() {
   glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
   // 裏面は描画しない
-  glEnable(GL_CULL_FACE);
-  glCullFace(GL_BACK);
+  // glEnable(GL_CULL_FACE);
+  // glCullFace(GL_BACK);
+  
+  // TIPS:2D描画だけなら裏面も描画してしまって問題ない
+  //      表・裏の判定を行う必要がない
+  glDisable(GL_CULL_FACE);
 
   // 深度テスト禁止
   glDisable(GL_DEPTH_TEST);
@@ -107,10 +116,10 @@ void AppEnv::setupDraw() {
   glLoadMatrixf(matrix.second.data());
 }
 
-// アプリウインドウの更新
+// アプリ更新処理終了
 // 1. OpenGLの描画内容をウインドウに表示
 // 2. キーやマウスイベントのポーリング
-void AppEnv::update() {
+void AppEnv::end() {
   // GLFWへ描画指示
   glfwSwapBuffers(window_());
 
@@ -118,12 +127,16 @@ void AppEnv::update() {
   switchInputBuffer();
     
   glfwPollEvents();
+  updateGamePad(gamepads_);
 }
   
 // 入力(キー＆ボタン)の再初期化
 void AppEnv::flushInput() {
+  // TIPS:二回呼び出しているのは、入力バッファがダブルバッファなので
   switchInputBuffer();
   switchInputBuffer();
+
+  flushGamePad(gamepads_);
 }
   
 // ウィンドウサイズを返す
@@ -189,7 +202,14 @@ void AppEnv::mousePosition(const Vec2f& pos) {
                                     current_window_size_, Vec2f(viewport_size_.x(), viewport_size_.y()));
 
   Vec2f mouse_pos = Vec2f(window_pos.x() + viewport_ofs_.x(), window_pos.y() + viewport_ofs_.y());
+  
   glfwSetCursorPos(window_(), mouse_pos.x(), mouse_pos.y());
+}
+
+// マウスカーソルのON/OFF
+void AppEnv::mouseCursor(const bool disp) {
+  glfwSetInputMode(window_(), GLFW_CURSOR, disp ? GLFW_CURSOR_NORMAL
+                                                : GLFW_CURSOR_HIDDEN);
 }
 
 // 当該ボタンが押されているならtrueを返す
@@ -213,6 +233,20 @@ bool AppEnv::isPushButton(const int button) {
 bool AppEnv::isPullButton(const int button) {
   const auto& buttons = pull_buttons_[buttons_page_];
   return buttons.find(button) != buttons.cend();
+}
+
+
+// GamePadの接続数
+size_t AppEnv::numGamePad() const { return gamepads_.size(); }
+
+// 指定番号のGamePadを取得
+// TIPS:const版も定義
+const GamePad& AppEnv::gamePad(const int index) const {
+  return gamepads_[index];
+}
+
+GamePad& AppEnv::gamePad(const int index) {
+  return gamepads_[index];
 }
 
   
@@ -312,9 +346,9 @@ void AppEnv::mouseMoveCallback(GLFWwindow* window, const double x_pos, const dou
 // 画面中央が(0, 0)の座標を計算
 Vec2f AppEnv::screenPosition(const Vec2f& pos, const Vec2f& window, const Vec2f& viewport) {
   // ウインドウサイズと描画サイズの違いも考慮する
-  Vec2f screen_rate(window.x() / viewport.x(), window.y() / viewport.y());
+  Vec2f screen_rate(window.array() / viewport.array());
   Vec2f view_pos(pos - viewport / 2.0f);
-  return Vec2f(view_pos.x() * screen_rate.x(), view_pos.y() * screen_rate.y());
+  return Vec2f(view_pos.array() * screen_rate.array());
 }
 
 // 画面中央が(0, 0)の座標→左上が(0, 0)の座標

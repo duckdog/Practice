@@ -1,5 +1,4 @@
-﻿
-#pragma once
+﻿#pragma once
 
 //
 // アプリの実行環境
@@ -8,11 +7,13 @@
 #include "defines.hpp"
 #include <array>
 #include <set>
+#include <vector>
 #include "glfwWindow.hpp"
 #include "vector.hpp"
 #include "camera2D.hpp"
 #include "graph.hpp"
 #include "audio.hpp"
+#include "gamePad.hpp"
 #include "os.hpp"
 
 
@@ -69,6 +70,9 @@ class AppEnv {
   std::set<int> press_buttons_;
   int buttons_page_;
 
+  // GamePad
+  std::vector<GamePad> gamepads_;
+  
   // サウンド関連
   Audio audio_;
   
@@ -80,9 +84,7 @@ public:
   AppEnv(const int width, const int height,
          const bool full_screen = false, const bool dynamic_size = false);
 
-  ~AppEnv();
-
-  // このクラスはコピー禁止
+  // TIPS:このクラスはコピー禁止
   AppEnv(const AppEnv&) = delete;
   AppEnv& operator=(const AppEnv&) = delete;
 
@@ -90,13 +92,19 @@ public:
   // アプリウインドウが開いてるならtrueを返す
   bool isOpen();
 
-  // 描画準備
-  void setupDraw();
+  // GLFWのハンドルを返却
+  // TIPS:const版も定義
+  // TIPS:*の右側のconstはポインタ値をconstにする
+  GLFWwindow* const getGlfwHandle();
+  const GLFWwindow* const getGlfwHandle() const;
 
-  // アプリウインドウの更新
+  // アプリ更新処理開始
+  void begin();
+
+  // アプリ更新処理終了
   // 1. OpenGLの描画内容をウインドウに表示
   // 2. キーやマウスイベントのポーリング
-  void update();
+  void end();
   
   // 入力(キー＆ボタン)の再初期化
   void flushInput();
@@ -140,9 +148,12 @@ public:
   // マウスのカーソル位置を返す
   const Vec2f& mousePosition() const;
 
-  // マウスのカーソル位置を指定
+  // カーソル位置変更
   void mousePosition(const Vec2f& pos);
-
+  
+  // マウスカーソルのON/OFF
+  void mouseCursor(const bool disp);
+  
   // 当該ボタンが押されているならtrueを返す
   // button Mouse::LEFT
   //        Mouse::Right
@@ -157,6 +168,15 @@ public:
   // button Mouse::LEFT
   //        Mouse::RIGHT
   bool isPullButton(const int button);
+
+
+  // GamePadの接続数
+  size_t numGamePad() const;
+
+  // 指定番号のGamePadを取得
+  // TIPS:const版も定義
+  const GamePad& gamePad(const int index) const;
+  GamePad& gamePad(const int index);
 
   
 private:

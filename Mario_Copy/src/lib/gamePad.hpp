@@ -84,6 +84,8 @@ public:
   // GamePadが有効ならtrueを返す
   bool isPresent() const;
 
+  // 入力をクリア
+  void flush();
   
   // GamePad 内部状態の更新
   void update();
@@ -95,3 +97,6 @@ std::vector<GamePad> initGamePad();
 
 // GamePadの内部状態をまとめて更新
 void updateGamePad(std::vector<GamePad>& gamepads);
+
+// コンテナのGamePadの状態をまとめてクリア
+void flushGamePad(std::vector<GamePad>& gamepads);

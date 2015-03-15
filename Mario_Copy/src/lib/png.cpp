@@ -1,5 +1,4 @@
-﻿
-// 
+﻿// 
 // libpngによる画像読み書き
 //
 // PNG_COLOR_TYPE_RGB		    RGB
@@ -130,10 +129,6 @@ Png::Png(const std::string& path) :
   DOUT << "PNG:" << width_ << " x " << height_ << " format:" << type_ << std::endl;
 }
   
-Png::~Png() {
-  DOUT << "~Png()" << std::endl;
-}
-
   
 // 画像タイプ
 // PNG_COLOR_TYPE_RGB

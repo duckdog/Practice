@@ -1,5 +1,4 @@
-﻿
-#pragma once
+﻿#pragma once
 
 //
 // カメラ(2D向け)
@@ -17,7 +16,6 @@ class Camera2D {
 
 public:
 	Camera2D();
-  ~Camera2D();
   
   std::pair<Affinef, Affinef> operator()(const Vec2f& view_size) const;
   

@@ -1,5 +1,4 @@
-﻿
-#pragma once
+﻿#pragma once
 
 //
 // OS依存処理(OSX版)
@@ -18,9 +17,8 @@ class Os {
   
 public:
 	Os();
-	~Os();
 
-  // このクラスはコピー禁止
+  // TIPS:このクラスはコピー禁止
   Os(const Os&) = delete;
   Os& operator=(const Os&) = delete;
 

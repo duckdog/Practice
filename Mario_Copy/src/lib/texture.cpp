@@ -1,5 +1,4 @@
-﻿
-//
+﻿//
 // テクスチャ管理
 // FIXME:OpenGLに依存している
 //
@@ -20,10 +19,6 @@ Texture::Texture(const std::string& filename) :
   setupPng(filename);
 }
 	
-Texture::~Texture() {
-  DOUT << "~Texture()" << std::endl;
-}
-
 
 // サイズを返す
 int Texture::width() const { return width_; }

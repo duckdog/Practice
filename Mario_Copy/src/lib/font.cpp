@@ -1,6 +1,6 @@
-﻿
-//
+﻿//
 // フォント
+// TIPS:Fontを生成した後は、必ずsizeを指定する事!!
 //
 
 #include "font.hpp"
@@ -21,25 +21,23 @@
 
 
 // コンストラクタ
-// font_path フォントファイル(拡張子がttf)
+// font_path フォントファイル(ttf,otf)
 // mode      フォント生成方式
 Font::Font(const std::string& font_path, const int mode) {
-  switch (mode) {
-  case BUFFER:
-    font_ = std::make_shared<FTBufferFont>(font_path.c_str());
-    break;
-
-  case CACHE:
-    font_ = std::make_shared<FTTextureFont>(font_path.c_str());
-    break;
-
-  case POLYGON:
-    font_ = std::make_shared<FTPolygonFont>(font_path.c_str());
-    break;
-  }
+  font_ = std::shared_ptr<FTFont>(setup(font_path, mode));
   font_->UseDisplayList(false);
 
   DOUT << "Font(" << font_path << ")" << std::endl;
+}
+
+// フォントを読み込み直す
+// font_path フォントファイル(ttf, otf)
+// mode      フォント生成方式(BUFFER, CACHE, POLYGON)
+void Font::read(const std::string& font_path, const int mode) {
+  font_ = std::shared_ptr<FTFont>(setup(font_path, mode));
+  font_->UseDisplayList(false);
+
+  DOUT << "Font::read(" << font_path << ")" << std::endl;
 }
 
 
@@ -67,4 +65,25 @@ void Font::draw(const std::string& text, const Vec2f& pos, const Color& color) {
   glPushMatrix();
   font_->Render(text.c_str(), -1, FTPoint(pos.x(), pos.y()), FTPoint());
   glPopMatrix();
+}
+
+
+// 適当なFontを生成して返却
+// font_path  Font fine path
+// mode       生成モード(BUFFER, CACHE, POLYGON)
+FTFont* Font::setup(const std::string& font_path, const int mode) {
+  switch (mode) {
+  case BUFFER:
+    return new FTBufferFont(font_path.c_str());
+
+  case CACHE:
+    return new FTTextureFont(font_path.c_str());
+
+  case POLYGON:
+    return new FTPolygonFont(font_path.c_str());
+
+  default:
+    assert(0 && "Font type error.");
+    return nullptr;
+  }
 }

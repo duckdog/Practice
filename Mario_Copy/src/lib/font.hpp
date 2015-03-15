@@ -1,8 +1,8 @@
-﻿
-#pragma once
+﻿#pragma once
 
 //
 // 文字表示
+// TIPS:Fontを生成した後は、必ずsizeを指定する事!!
 //
 
 #include "defines.hpp"
@@ -10,9 +10,6 @@
 #include <memory>
 #include "vector.hpp"
 #include "graph.hpp"
-
-// 文字表示ライブラリのリンク形式を指定
-#define FTGL_LIBRARY_STATIC
 #include <FTGL/ftgl.h>
 
 
@@ -32,12 +29,19 @@ public:
   };
 
   // コンストラクタ
-  // font_path フォントファイル(拡張子がttf)
-  // mode      フォント生成方式
+  // font_path フォントファイル(ttf,otf)
+  // mode      フォント生成方式(BUFFER, CACHE, POLYGON)
   Font(const std::string& font_path, const int mode = BUFFER);
 
+  // フォントを読み込み直す
+  // font_path フォントファイル(ttf, otf)
+  // mode      フォント生成方式(BUFFER, CACHE, POLYGON)
+  void read(const std::string& font_path, const int mode = BUFFER);
+  
   
   // フォントサイズ指定
+  // FIXME:CACHEタイプはサイズを変更する度、内部キャッシュが破棄される
+  //       →処理が重くなる
   void size(const int size);
 
   // 描画した時のサイズを取得
@@ -49,4 +53,8 @@ public:
   // color 表示色
   void draw(const std::string& text, const Vec2f& pos, const Color& color);
 
+
+private:
+  FTFont* setup(const std::string& font_path, const int mode);
+  
 };

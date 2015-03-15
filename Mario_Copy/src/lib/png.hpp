@@ -1,5 +1,4 @@
-﻿
-#pragma once
+﻿#pragma once
 
 // 
 // libpngによる画像読み書き
@@ -30,7 +29,6 @@ class Png {
   
 public:
 	Png(const std::string& path);
-	~Png();
 
   
   // 画像タイプ

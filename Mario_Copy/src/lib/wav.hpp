@@ -42,6 +42,10 @@ public:
   // 波形データを返す
 	const char* data() const;
 
+  
+  // wavの情報を取得
+  static bool analyzeWavFile(Info& info, std::ifstream& fstr);
+
 
 private:
   Info info;
@@ -57,9 +61,6 @@ private:
 
   // チャンクのサイズを取得
   static u_int getChunkSize(std::ifstream& fstr);
-
-  // wavの情報を取得
-  static bool analyzeWavFile(Info& info, std::ifstream& fstr);
   
 };
 

@@ -119,6 +119,17 @@ bool GamePad::isPullAxisButton(const int index) const {
 bool GamePad::isPresent() const {
   return (glfwJoystickPresent(id_) == GL_TRUE) ? true : false;
 }
+  // 入力をクリア
+void GamePad::flush() {
+  std::fill(std::begin(press_button_), std::end(press_button_), 0);
+  std::fill(std::begin(push_button_), std::end(push_button_), 0);
+  std::fill(std::begin(pull_button_), std::end(pull_button_), 0);
+  std::fill(std::begin(axis_value_), std::end(axis_value_), 0.0f);
+
+  std::fill(std::begin(press_axis_button_), std::end(press_axis_button_), 0);
+  std::fill(std::begin(push_axis_button_), std::end(push_axis_button_), 0);
+  std::fill(std::begin(pull_axis_button_), std::end(pull_axis_button_), 0);
+}
 
 
 // 内部状態の更新
@@ -195,3 +206,13 @@ void updateGamePad(std::vector<GamePad>& gamepads) {
     }
   }
 }
+
+// コンテナのGamePadの状態をまとめてクリア
+void flushGamePad(std::vector<GamePad>& gamepads) {
+  for (auto& pad : gamepads) {
+    if (pad.isPresent()) {
+      pad.flush();
+    }
+  }
+}
+

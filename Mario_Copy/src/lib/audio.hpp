@@ -61,6 +61,7 @@ class Buffer {
 
 
 public:
+  Buffer();
   explicit Buffer(const std::string& path);
   ~Buffer();
 
@@ -71,7 +72,10 @@ public:
   
   // バッファの識別子
   ALuint id() const;
-  
+
+  // 波形データを割り当て
+  // TIPS:割り当て後、dataの内容は破棄できる
+  void bind(const bool stereo, const void* data, const u_int size, const u_int rate) const;
 };
 
 
@@ -138,6 +142,14 @@ public:
   // 再生位置(秒)
   float currentTime() const;
 
+  // Bufferの再生キューイング
+  void queueBuffer(const Buffer& buffer) const;
+  // 再生完了Bufferのid取得
+  ALuint unqueueBuffer() const;
+
+  // キューイングされたBufferの再生完了数を取得
+  int processed() const;
+  
 };
 
 

@@ -1,5 +1,4 @@
-﻿
-//
+﻿//
 // グラフィック関連
 //
 
@@ -25,18 +24,41 @@ Color::Color(const float red, const float green, const float blue,
   alpha_(alpha)
 {}
 
+// 色の取得
+float Color::r() const   { return red_; }
+float Color::g() const { return green_; }
+float Color::b() const  { return blue_; }
+float Color::a() const { return alpha_; }
   
 // 色の変更
-float& Color::red() { return red_; }
-float& Color::green() { return green_; }
-float& Color::blue() { return blue_; }
-float& Color::alpha() { return alpha_; }
+void Color::r(const float value)   { red_ = value; }
+void Color::g(const float value) { green_ = value; }
+void Color::b(const float value)  { blue_ = value; }
+void Color::a(const float value) { alpha_ = value; }
 
 
 // OpenGLへ描画色を指定
 void Color::setToGl() const {
   glColor4f(red_, green_, blue_, alpha_);
 }
+
+
+// 定型色
+const Color Color::black   = Color(0.0f, 0.0f, 0.0f);
+const Color Color::maroon  = Color(0.5f, 0.0f, 0.0f);
+const Color Color::red     = Color(1.0f, 0.0f, 0.0f);
+const Color Color::green   = Color(0.0f, 0.5f, 0.0f);
+const Color Color::lime    = Color(0.0f, 1.0f, 0.0f);
+const Color Color::olive   = Color(0.5f, 0.5f, 0.0f);
+const Color Color::yellow  = Color(1.0f, 1.0f, 0.0f);
+const Color Color::navy    = Color(0.0f, 0.0f, 0.5f);
+const Color Color::blue    = Color(0.0f, 0.0f, 1.0f);
+const Color Color::purple  = Color(0.5f, 0.0f, 0.5f);
+const Color Color::magenta = Color(1.0f, 0.0f, 1.0f);
+const Color Color::teal    = Color(0.0f, 0.5f, 0.5f);
+const Color Color::cyan    = Color(0.0f, 1.0f, 1.0f);
+const Color Color::gray    = Color(0.5f, 0.5f, 0.5f);
+const Color Color::white   = Color(1.0f, 1.0f, 1.0f);
 
 
 // 色を0~255で指定する
@@ -221,6 +243,143 @@ void drawLine(const float start_x, const float start_y,
 }
 
 
+// 三角形を描画
+// x1, y1 ~ x3, y3 頂点
+// line_width      線幅
+// color           色
+void drawTriangle(const float x1, const float y1,
+                  const float x2, const float y2,
+                  const float x3, const float y3,
+                  const float line_width,
+                  const Color& color) {
+
+  GLfloat vtx[] = {
+    x1, y1,
+    x2, y2,
+    x3, y3,
+  };
+
+  glVertexPointer(2, GL_FLOAT, 0, vtx);
+
+  // 線分の太さを指示
+  glLineWidth(line_width);
+
+  // 色を設定
+  color.setToGl();
+
+  glEnableClientState(GL_VERTEX_ARRAY);
+
+  // OpenGLに線分の描画を指示
+  glDrawArrays(GL_LINE_LOOP, 0, 3);
+
+  glDisableClientState(GL_VERTEX_ARRAY);
+}
+
+// 三角形を描画(回転、拡大縮小つき)
+// x1, y1 ~ x3, y3  頂点
+// line_width       線幅
+// color            色
+// angle_rad        回転角度(ラジアン)
+// scaling          横、縦の拡大縮小率
+// origin           矩形の原点位置
+void drawTriangle(const float x1, const float y1,
+                  const float x2, const float y2,
+                  const float x3, const float y3,
+                  const float line_width,
+                  const Color& color,
+                  const float angle_rad,
+                  const Vec2f& scaling,
+                  const Vec2f& origin) {
+  
+  // 回転、拡大縮小の行列を生成
+  // 一番小さい座標値を原点とする
+  float min_x = std::min(x1, std::min(x2, x3));
+  float min_y = std::min(y1, std::min(y2, y3));
+  
+  auto matrix = transformMatrix2D(angle_rad,
+                                  Vec3f(min_x, min_y, 0.0f),
+                                  Vec3f(scaling.x(), scaling.y(), 1.0f));
+
+  // 行列をOpenGLに設定
+  glPushMatrix();
+  glMultMatrixf(matrix.data());
+
+  // 描画
+  drawTriangle((x1 - min_x) - origin.x(), (y1 - min_y) - origin.y(),
+               (x2 - min_x) - origin.x(), (y2 - min_y) - origin.y(),
+               (x3 - min_x) - origin.x(), (y3 - min_y) - origin.y(),
+               line_width,
+               color);
+
+  // 行列を元に戻す
+  glPopMatrix();
+}
+
+// 塗りつぶし三角形を描画
+// x1, y1 ~ x3, y3 頂点
+// color           色
+void drawFillTriangle(const float x1, const float y1,
+                      const float x2, const float y2,
+                      const float x3, const float y3,
+                      const Color& color) {
+
+  GLfloat vtx[] = {
+    x1, y1,
+    x2, y2,
+    x3, y3,
+  };
+
+  glVertexPointer(2, GL_FLOAT, 0, vtx);
+
+  // 色を設定
+  color.setToGl();
+
+  glEnableClientState(GL_VERTEX_ARRAY);
+
+  // OpenGLに三角ポリゴンの描画を指示
+  glDrawArrays(GL_TRIANGLES, 0, 3);
+
+  glDisableClientState(GL_VERTEX_ARRAY);
+}
+
+// 塗りつぶし三角形を描画(回転、拡大縮小つき)
+// x1, y1 ~ x3, y3  頂点
+// color            色
+// angle_rad        回転角度(ラジアン)
+// scaling          横、縦の拡大縮小率
+// origin           矩形の原点位置
+void drawFillTriangle(const float x1, const float y1,
+                      const float x2, const float y2,
+                      const float x3, const float y3,
+                      const Color& color,
+                      const float angle_rad,
+                      const Vec2f& scaling,
+                      const Vec2f& origin) {
+
+  // 回転、拡大縮小の行列を生成
+  // 一番小さい座標値を原点とする
+  float min_x = std::min(x1, std::min(x2, x3));
+  float min_y = std::min(y1, std::min(y2, y3));
+  
+  auto matrix = transformMatrix2D(angle_rad,
+                                  Vec3f(min_x, min_y, 0.0f),
+                                  Vec3f(scaling.x(), scaling.y(), 1.0f));
+
+  // 行列をOpenGLに設定
+  glPushMatrix();
+  glMultMatrixf(matrix.data());
+
+  // 描画
+  drawFillTriangle((x1 - min_x) - origin.x(), (y1 - min_y) - origin.y(),
+                   (x2 - min_x) - origin.x(), (y2 - min_y) - origin.y(),
+                   (x3 - min_x) - origin.x(), (y3 - min_y) - origin.y(),
+                   color);
+
+  // 行列を元に戻す
+  glPopMatrix();
+}
+
+
 // 円を描画
 // center_x, center_y 円の中心位置
 // radius_x, radius_y 半径(横と縦)
@@ -366,6 +525,159 @@ void drawFillCircle(const float center_x, const float center_y,
 }
 
 
+// 円弧を描画
+// center_x, center_y  円の中心位置
+// radius_x, radius_y  半径(横と縦)
+// start_rad, end_rad  開始・終了角度
+// division            円の分割数(数値が大きいと滑らかな円になる)
+// line_width          線幅
+// color               色
+void drawArc(const float center_x, const float center_y,
+             const float radius_x, const float radius_y,
+             const float start_rad, const float end_rad,
+             const int division,
+             const float line_width,
+             const Color& color) {
+  // 線分の太さを指示
+  glLineWidth(line_width);
+
+  // 色を設定
+  color.setToGl();
+
+  // 頂点データを生成
+  std::vector<GLfloat> vtx;
+  vtx.reserve(division * 2);                        // TIPS:正確な値である必要はない
+  for (int i = 0; i <= division; ++i) {
+    float r = ((end_rad - start_rad) * i) / division + start_rad;
+
+    vtx.push_back(radius_x * std::sin(r) + center_x);
+    vtx.push_back(radius_y * std::cos(r) + center_y);
+  }
+
+  glVertexPointer(2, GL_FLOAT, 0, &vtx[0]);
+  
+  glEnableClientState(GL_VERTEX_ARRAY);
+  
+  glDrawArrays(GL_LINE_STRIP, 0, GLsizei(vtx.size() / 2));
+  
+  glDisableClientState(GL_VERTEX_ARRAY);
+}
+
+// 円弧を描画(回転、拡大縮小つき)
+// center_x, center_y  円の中心位置
+// radius_x, radius_y  半径(横と縦)
+// start_rad, end_rad  開始・終了角度
+// division            円の分割数(数値が大きいと滑らかな円になる)
+// line_width          線幅
+// color               色
+// angle_rad           回転角度(ラジアン)
+// scaling             横、縦の拡大縮小率
+// origin              矩形の原点位置
+void drawArc(const float center_x, const float center_y,
+             const float radius_x, const float radius_y,
+             const float start_rad, const float end_rad,
+             const int division,
+             const float line_width,
+             const Color& color,
+             const float angle_rad,
+             const Vec2f& scaling,
+             const Vec2f& origin) {
+
+  // 回転、拡大縮小の行列を生成
+  auto matrix = transformMatrix2D(angle_rad,
+                                  Vec3f(center_x, center_y, 0.0f),
+                                  Vec3f(scaling.x(), scaling.y(), 1.0f));
+
+  // 行列をOpenGLに設定
+  glPushMatrix();
+  glMultMatrixf(matrix.data());
+
+  // 描画
+  drawArc(-origin.x(), -origin.y(),
+          radius_x, radius_y,
+          start_rad, end_rad,
+          division,
+          line_width,
+          color);
+
+  // 行列を元に戻す
+  glPopMatrix();
+}
+
+// 塗り潰し円弧
+// center_x, center_y  円の中心位置
+// radius_x, radius_y  半径(横と縦)
+// start_rad, end_rad  開始・終了角度
+// division            円の分割数(数値が大きいと滑らかな円になる)
+// color               色
+void drawFillArc(const float center_x, const float center_y,
+                 const float radius_x, const float radius_y,
+                 const float start_rad, const float end_rad,
+                 const int division,
+                 const Color& color) {
+  // 色を設定
+  color.setToGl();
+
+  // 頂点データを生成
+  std::vector<GLfloat> vtx;
+  vtx.reserve(division * 2);                        // TIPS:正確な値である必要はない
+  vtx.push_back(center_x);
+  vtx.push_back(center_y);
+  for (int i = 0; i <= division; ++i) {
+    float r = ((end_rad - start_rad) * i) / division + start_rad;
+
+    vtx.push_back(radius_x * std::sin(r) + center_x);
+    vtx.push_back(radius_y * std::cos(r) + center_y);
+  }
+
+  glVertexPointer(2, GL_FLOAT, 0, &vtx[0]);
+  
+  glEnableClientState(GL_VERTEX_ARRAY);
+  
+  glDrawArrays(GL_TRIANGLE_FAN, 0, GLsizei(vtx.size() / 2));
+  
+  glDisableClientState(GL_VERTEX_ARRAY);
+}
+
+// 塗り潰し円弧(回転、拡大縮小つき)
+// center_x, center_y  円の中心位置
+// radius_x, radius_y  半径(横と縦)
+// start_rad, end_rad  開始・終了角度
+// division            円の分割数(数値が大きいと滑らかな円になる)
+// color               色
+// angle_rad           回転角度(ラジアン)
+// scaling             横、縦の拡大縮小率
+// origin              矩形の原点位置
+void drawFillArc(const float center_x, const float center_y,
+                 const float radius_x, const float radius_y,
+                 const float start_rad, const float end_rad,
+                 const int division,
+                 const Color& color,
+                 const float angle_rad,
+                 const Vec2f& scaling,
+                 const Vec2f& origin) {
+
+  // 回転、拡大縮小の行列を生成
+  auto matrix = transformMatrix2D(angle_rad,
+                                  Vec3f(center_x, center_y, 0.0f),
+                                  Vec3f(scaling.x(), scaling.y(), 1.0f));
+
+  // 行列をOpenGLに設定
+  glPushMatrix();
+  glMultMatrixf(matrix.data());
+
+  // 描画
+  drawFillArc(-origin.x(), -origin.y(),
+              radius_x, radius_y,
+              start_rad, end_rad,
+              division,
+              color);
+
+  // 行列を元に戻す
+  glPopMatrix();
+}
+
+
 // 矩形
 // start_x, start_y 始点
 // width, height    幅、高さ
@@ -387,7 +699,6 @@ void drawBox(const float start_x, const float start_y,
     start_x, end_y,
     end_x,   end_y,
     end_x,   start_y,
-    start_x, start_y
   };
 
   glVertexPointer(2, GL_FLOAT, 0, vtx);
@@ -398,7 +709,7 @@ void drawBox(const float start_x, const float start_y,
   glEnableClientState(GL_VERTEX_ARRAY);
 
   // OpenGLに線分の描画を指示
-  glDrawArrays(GL_LINE_STRIP, 0, 5);
+  glDrawArrays(GL_LINE_LOOP, 0, 4);
 
   glDisableClientState(GL_VERTEX_ARRAY);
 }
@@ -501,6 +812,154 @@ void drawFillBox(const float start_x, const float start_y,
   // 行列を元に戻す
   glPopMatrix();
 }
+
+
+// 四角形
+// x1, y1 ~ x4, y4  頂点
+// line_width       線幅
+// color            色
+void drawQuad(const float x1, const float y1,
+              const float x2, const float y2,
+              const float x3, const float y3,
+              const float x4, const float y4,
+              const float line_width,
+              const Color& color) {
+
+  // 線分の太さを指示
+  glLineWidth(line_width);
+
+  GLfloat vtx[] = {
+    x1, y1,
+    x2, y2,
+    x3, y3,
+    x4, y4,
+  };
+
+  glVertexPointer(2, GL_FLOAT, 0, vtx);
+
+  // 色を設定
+  color.setToGl();
+
+  glEnableClientState(GL_VERTEX_ARRAY);
+
+  // OpenGLに線分の描画を指示
+  glDrawArrays(GL_LINE_LOOP, 0, 4);
+
+  glDisableClientState(GL_VERTEX_ARRAY);
+}
+
+// 四角形(回転、拡大縮小つき)
+// x1, y1 ~ x4, y4  頂点
+// line_width       線幅
+// color            色
+// angle_rad        回転角度(ラジアン)
+// scaling          横、縦の拡大縮小率
+// origin           矩形の原点位置
+void drawQuad(const float x1, const float y1,
+              const float x2, const float y2,
+              const float x3, const float y3,
+              const float x4, const float y4,
+              const float line_width,
+              const Color& color,
+              const float angle_rad,
+              const Vec2f& scaling,
+              const Vec2f& origin) {
+
+  // 回転、拡大縮小の行列を生成
+  // 一番小さな値を原点座標にする
+  float min_x = std::min(x1, std::min(x2, std::min(x3, x4)));
+  float min_y = std::min(y1, std::min(y2, std::min(y3, y4)));
+  
+  auto matrix = transformMatrix2D(angle_rad,
+                                  Vec3f(min_x, min_y, 0.0f),
+                                  Vec3f(scaling.x(), scaling.y(), 1.0f));
+
+  // 行列をOpenGLに設定
+  glPushMatrix();
+  glMultMatrixf(matrix.data());
+
+  // 描画
+  drawQuad((x1 - min_x) - origin.x(), (y1 - min_y) - origin.y(),
+           (x2 - min_x) - origin.x(), (y2 - min_y) - origin.y(),
+           (x3 - min_x) - origin.x(), (y3 - min_y) - origin.y(),
+           (x4 - min_x) - origin.x(), (y4 - min_y) - origin.y(),
+           line_width,
+           color);
+
+  // 行列を元に戻す
+  glPopMatrix();
+}
+
+
+// 塗り潰し四角
+// x1, y1 ~ x4, y4  頂点
+// color            色
+void drawFillQuad(const float x1, const float y1,
+                  const float x2, const float y2,
+                  const float x3, const float y3,
+                  const float x4, const float y4,
+                  const Color& color) {
+
+  GLfloat vtx[] = {
+    x1, y1,
+    x2, y2,
+    x4, y4,
+    x2, y2,
+    x3, y3,
+    x4, y4,
+  };
+
+  glVertexPointer(2, GL_FLOAT, 0, vtx);
+
+  // 色を設定
+  color.setToGl();
+
+  glEnableClientState(GL_VERTEX_ARRAY);
+
+  // OpenGLに線分の描画を指示
+  glDrawArrays(GL_TRIANGLES, 0, 6);
+
+  glDisableClientState(GL_VERTEX_ARRAY);
+}
+
+// 塗り潰し四角(回転、拡大縮小つき)
+// x1, y1 ~ x4, y4  頂点
+// color            色
+// angle_rad        回転角度(ラジアン)
+// scaling          横、縦の拡大縮小率
+// origin           矩形の原点位置
+void drawFillQuad(const float x1, const float y1,
+                  const float x2, const float y2,
+                  const float x3, const float y3,
+                  const float x4, const float y4,
+                  const Color& color,
+                  const float angle_rad,
+                  const Vec2f& scaling,
+                  const Vec2f& origin) {
+  
+  // 回転、拡大縮小の行列を生成
+  // 一番小さな値を原点座標にする
+  float min_x = std::min(x1, std::min(x2, std::min(x3, x4)));
+  float min_y = std::min(y1, std::min(y2, std::min(y3, y4)));
+  
+  auto matrix = transformMatrix2D(angle_rad,
+                                  Vec3f(min_x, min_y, 0.0f),
+                                  Vec3f(scaling.x(), scaling.y(), 1.0f));
+
+  // 行列をOpenGLに設定
+  glPushMatrix();
+  glMultMatrixf(matrix.data());
+
+  // 描画
+  drawFillQuad((x1 - min_x) - origin.x(), (y1 - min_y) - origin.y(),
+               (x2 - min_x) - origin.x(), (y2 - min_y) - origin.y(),
+               (x3 - min_x) - origin.x(), (y3 - min_y) - origin.y(),
+               (x4 - min_x) - origin.x(), (y4 - min_y) - origin.y(),
+               color);
+
+  // 行列を元に戻す
+  glPopMatrix();
+}                  
 
 
 // 画像つき矩形の描画
