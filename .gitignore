@@ -3,6 +3,7 @@ Windows/
 Debug/
 Release/
 res/
+
 *.sln
 *.suo
 *.sdf
@@ -12,4 +13,5 @@ res/
 *.pdb
 *.vcxproj
 *.vcxproj.filters
+
 *.dll
