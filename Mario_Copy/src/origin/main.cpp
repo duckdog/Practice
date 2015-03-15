@@ -8,5 +8,3 @@ int main() {
   cGamePlayer game;
   game.run();
 }
-
-// Yanaiデース
