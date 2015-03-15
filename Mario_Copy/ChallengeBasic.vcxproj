@@ -102,6 +102,7 @@
     <ClCompile Include="src\lib\utils.cpp" />
     <ClCompile Include="src\lib\wav.cpp" />
     <ClCompile Include="src\origin\main.cpp" />
+    <ClCompile Include="src\origin\Object\object.cpp" />
     <ClCompile Include="src\origin\System\environment.cpp" />
     <ClCompile Include="src\origin\System\scene_manager.cpp" />
   </ItemGroup>
@@ -127,6 +128,7 @@
     <ClInclude Include="src\lib\vector.hpp" />
     <ClInclude Include="src\lib\wav.hpp" />
     <ClInclude Include="src\origin\common.h" />
+    <ClInclude Include="src\origin\Object\object.h" />
     <ClInclude Include="src\origin\System\environment.h" />
     <ClInclude Include="src\origin\System\game_player.h" />
     <ClInclude Include="src\origin\System\scene_manager.h" />

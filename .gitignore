@@ -8,3 +8,11 @@ Windows/
 *.ilk
 Debug/
 Release/
+/src/lib/
+include/
+Windows/
+*.sln
+*.vcproj
+res/
+*.vcxproj
+*.vcxproj.filters

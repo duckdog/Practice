@@ -87,6 +87,9 @@
     <ClCompile Include="src\origin\System\environment.cpp">
       <Filter>Origin\System\環境</Filter>
     </ClCompile>
+    <ClCompile Include="src\origin\Object\object.cpp">
+      <Filter>Origin\Object</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\lib\appEnv.hpp">
@@ -160,6 +163,9 @@
     </ClInclude>
     <ClInclude Include="src\origin\System\environment.h">
       <Filter>Origin\System\環境</Filter>
+    </ClInclude>
+    <ClInclude Include="src\origin\Object\object.h">
+      <Filter>Origin\Object</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
