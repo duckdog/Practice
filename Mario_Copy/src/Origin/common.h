@@ -5,6 +5,7 @@
 
 namespace common {
 
+  // ‚ ‚Î‚Î‚Î‚Î
   enum WindowSize {
     WIDTH = 1200,
     HEIGHT = 900,
