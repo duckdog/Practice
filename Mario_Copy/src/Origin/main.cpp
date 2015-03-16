@@ -1,4 +1,5 @@
-﻿
+﻿// 金剛デース
+
 #include "Object/object.h"
 #include "System/environment.h"
 
