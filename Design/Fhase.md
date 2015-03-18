@@ -1,6 +1,6 @@
 # フェーズ
 
-- Fhase1~
+- Fhase1
 
 ## Fhase1
 
