@@ -1,20 +1,9 @@
 ﻿
-#include "Object/object.h"
-#include "System/environment.h"
+#include "System/game_player.hpp"
+
 
 int main() {
   env::getInstance();
-
-  cObject obj;
-  obj.componentInit();
-
-  while (env::getInstance().isOpen()) {
-    obj.update();
-
-    env::getInstance().begin();
-
-    obj.draw();
-
-    env::getInstance().end();
-  }
+  cGamePlayer game;
+  game.run();
 }
