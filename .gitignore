@@ -4,14 +4,11 @@ Debug/
 Release/
 res/
 
-*.sln
 *.suo
 *.sdf
 *.opensdf
 *.exe
 *.ilk
 *.pdb
-*.vcxproj
-*.vcxproj.filters
 
 *.dll
