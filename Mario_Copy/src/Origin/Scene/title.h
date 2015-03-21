@@ -5,6 +5,7 @@
 
 class cTitle : public cScene {
 public:
+
   cTitle();
 
   void update();
