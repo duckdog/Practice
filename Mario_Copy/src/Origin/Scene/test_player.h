@@ -1,7 +1,7 @@
 
 #pragma once
 #include "../common.h"
-#include "../Object/object.h"
+#include "../Object/object.hpp"
 
 
 // TIPS: 動作確認　プレイヤー

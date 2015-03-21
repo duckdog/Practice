@@ -106,15 +106,6 @@
     <ClInclude Include="src\Origin\Object\object_interface.h">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="src\Origin\Object\object.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Origin\Object\object_move.h">
-      <Filter>Object</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Origin\Object\object_jump.h">
-      <Filter>Object</Filter>
-    </ClInclude>
     <ClInclude Include="src\Origin\System\environment.h">
       <Filter>System\環境</Filter>
     </ClInclude>
@@ -144,6 +135,18 @@
     </ClInclude>
     <ClInclude Include="src\Origin\System\gadget.h">
       <Filter>System\インターフェイス</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Origin\Object\enemy.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Origin\Object\object.hpp">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Origin\Object\player_move.h">
+      <Filter>Object</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Origin\Object\player_jump.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -211,15 +214,6 @@
     <ClCompile Include="src\Origin\Object\object_interface.cpp">
       <Filter>Object</Filter>
     </ClCompile>
-    <ClCompile Include="src\Origin\Object\object.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Origin\Object\object_move.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Origin\Object\object_jump.cpp">
-      <Filter>Object</Filter>
-    </ClCompile>
     <ClCompile Include="src\Origin\System\environment.cpp">
       <Filter>System\環境</Filter>
     </ClCompile>
@@ -243,6 +237,15 @@
     </ClCompile>
     <ClCompile Include="src\Origin\System\gadget.cpp">
       <Filter>System\インターフェイス</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Origin\Object\enemy.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Origin\Object\player_move.cpp">
+      <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Origin\Object\player_jump.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
