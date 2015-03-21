@@ -5,7 +5,6 @@
 
 namespace common {
 
-  // ‚ ‚Î‚Î‚Î‚Î
   enum WindowSize {
     WIDTH = 1200,
     HEIGHT = 900,
@@ -25,7 +24,7 @@ struct float2 {
 };
 
 
-struct Object {
+struct Transform {
   float2 pos;
   float2 size;
   short direction;

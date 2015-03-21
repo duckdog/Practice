@@ -28,6 +28,12 @@
     <Filter Include="System\インターフェイス">
       <UniqueIdentifier>{a338acd8-7361-4868-a47d-f53419e35d4c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Object\敵">
+      <UniqueIdentifier>{f3cbedf7-7d8f-4f82-b326-625fbcb66d78}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\プレイヤー">
+      <UniqueIdentifier>{3371fddd-c987-4e65-8a87-7bf6c7109c25}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\lib\appEnv.hpp">
@@ -136,17 +142,20 @@
     <ClInclude Include="src\Origin\System\gadget.h">
       <Filter>System\インターフェイス</Filter>
     </ClInclude>
-    <ClInclude Include="src\Origin\Object\enemy.h">
-      <Filter>Object</Filter>
-    </ClInclude>
     <ClInclude Include="src\Origin\Object\object.hpp">
       <Filter>Object</Filter>
     </ClInclude>
+    <ClInclude Include="src\Origin\Object\enemy.h">
+      <Filter>Object\敵</Filter>
+    </ClInclude>
     <ClInclude Include="src\Origin\Object\player_move.h">
-      <Filter>Object</Filter>
+      <Filter>Object\プレイヤー</Filter>
     </ClInclude>
     <ClInclude Include="src\Origin\Object\player_jump.h">
-      <Filter>Object</Filter>
+      <Filter>Object\プレイヤー</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Origin\Object\player.h">
+      <Filter>Object\プレイヤー</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -239,13 +248,16 @@
       <Filter>System\インターフェイス</Filter>
     </ClCompile>
     <ClCompile Include="src\Origin\Object\enemy.cpp">
-      <Filter>Object</Filter>
+      <Filter>Object\敵</Filter>
     </ClCompile>
     <ClCompile Include="src\Origin\Object\player_move.cpp">
-      <Filter>Object</Filter>
+      <Filter>Object\プレイヤー</Filter>
     </ClCompile>
     <ClCompile Include="src\Origin\Object\player_jump.cpp">
-      <Filter>Object</Filter>
+      <Filter>Object\プレイヤー</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Origin\Object\player.cpp">
+      <Filter>Object\プレイヤー</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

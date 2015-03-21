@@ -5,7 +5,7 @@
 
 
 class cPlayerMove : public cObjectInterface {
-  Object m_vector;
+  Transform m_vector;
 
 public:
   cPlayerMove(cObject*);

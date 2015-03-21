@@ -39,6 +39,7 @@
     <ClInclude Include="src\Origin\Object\enemy.h" />
     <ClInclude Include="src\Origin\Object\object.hpp" />
     <ClInclude Include="src\Origin\Object\object_interface.h" />
+    <ClInclude Include="src\Origin\Object\player.h" />
     <ClInclude Include="src\Origin\Object\player_jump.h" />
     <ClInclude Include="src\Origin\Object\player_move.h" />
     <ClInclude Include="src\Origin\Scene\scene.hpp" />
@@ -76,6 +77,7 @@
     <ClCompile Include="src\Origin\main.cpp" />
     <ClCompile Include="src\Origin\Object\enemy.cpp" />
     <ClCompile Include="src\Origin\Object\object_interface.cpp" />
+    <ClCompile Include="src\Origin\Object\player.cpp" />
     <ClCompile Include="src\Origin\Object\player_jump.cpp" />
     <ClCompile Include="src\Origin\Object\player_move.cpp" />
     <ClCompile Include="src\Origin\Scene\test_enemy.cpp" />

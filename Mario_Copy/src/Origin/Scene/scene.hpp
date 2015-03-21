@@ -7,10 +7,16 @@
 //
 
 class cScene {
+public:
+
+  virtual void update() = 0;
+  virtual void draw()   = 0;
+
+
 protected:
 
   cScene() {
-    m_screen.init();
+    m_effect.init();
   }
 
   struct {
@@ -19,14 +25,9 @@ protected:
     float alpha;   // 透明度
 
     void init() {
-      time  = 0;
+      time = 0;
       blink = 0;
       alpha = 1.0f;
     }
-  } m_screen;   // TIPS: 背景アニメ用のパラメータ
-
-public:
-
-  virtual void update() = 0;
-  virtual void draw()   = 0;
+  } m_effect;   // TIPS: 演出用のパラメータ
 };

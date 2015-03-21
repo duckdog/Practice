@@ -10,4 +10,7 @@ public:
 
   void update();
   void draw();
+
+
+private:
 };

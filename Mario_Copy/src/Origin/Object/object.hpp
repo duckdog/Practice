@@ -4,8 +4,9 @@
 
 class cObject {
 public:
-  cObject();
+
+  cObject() = default;
 
   virtual void update() = 0;
-  virtual void draw() = 0;
+  virtual void draw()   = 0;
 };
