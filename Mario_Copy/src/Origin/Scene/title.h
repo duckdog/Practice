@@ -6,7 +6,7 @@
 class cTitle : public cScene {
 public:
 
-  cTitle();
+  cTitle(Font&);
 
   void update();
   void draw();

@@ -15,19 +15,6 @@ public:
 
 protected:
 
-  cScene() {
-    m_effect.init();
-  }
-
-  struct {
-    short time;    // 点滅タイマー
-    short blink;   // 点滅状態
-    float alpha;   // 透明度
-
-    void init() {
-      time = 0;
-      blink = 0;
-      alpha = 1.0f;
-    }
-  } m_effect;   // TIPS: 演出用のパラメータ
+  cScene(Font& font) : m_font(font) {}
+  Font& m_font;
 };

@@ -2,7 +2,15 @@
 #include "scene_manager.h"
 
 
-cSceneManager::cSceneManager() {
+cSceneManager::cSceneManager() :
+m_font("res/font/mplus12r.ttf"),
+m_interface(m_font) {
+
+  m_font.size(40);
+}
+
+
+void cSceneManager::start() {
 }
 
 
@@ -21,8 +29,4 @@ void cSceneManager::draw() {
   m_interface.draw();
 
   env::getInstance().end();
-}
-
-
-void cSceneManager::init() {
 }

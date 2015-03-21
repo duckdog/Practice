@@ -29,3 +29,18 @@ struct Transform {
   float2 size;
   short direction;
 };
+
+
+struct Effect {
+  short time;
+  short blink;
+  float alpha;
+
+  void init() {
+    time  = 0;
+    blink = 0;
+    alpha = 1.0f;
+  }
+
+  Effect() { init(); }
+};

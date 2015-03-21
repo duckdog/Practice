@@ -2,7 +2,8 @@
 #include "title.h"
 
 
-cTitle::cTitle() {
+cTitle::cTitle(Font& font) :
+cScene(font) {
 }
 
 
