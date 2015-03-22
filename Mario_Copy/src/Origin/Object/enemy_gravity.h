@@ -9,8 +9,11 @@ public:
   cEnemyGravity(cObject*);
   
   void update();
+  float getVelocity();
 
 
 private:
 
+  const float GRAVITY_POWER = 0.1f;
+  float m_velocity_y;
 };
