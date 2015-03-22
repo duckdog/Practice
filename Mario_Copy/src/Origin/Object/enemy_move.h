@@ -9,10 +9,10 @@ public:
   cEnemyMove(cObject*);
 
   void update();
-  Transform getPos();
+  float2 getPos();
 
 private:
 
-  Transform m_vector;
+  float2 m_pos;
 
 };

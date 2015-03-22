@@ -14,6 +14,8 @@ public:
   void update();
   void draw();
 
+  void componentInit();
+
 
 private:
 
