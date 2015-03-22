@@ -7,5 +7,5 @@ cObjectInterface(obj){}
 
 
 void cEnemyMove::update(){
-
+  m_vector.pos.x += 10;
 }

@@ -9,7 +9,7 @@ public:
   cEnemyMove(cObject*);
 
   void update();
-
+  Transform getPos();
 
 private:
 
