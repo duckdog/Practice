@@ -157,6 +157,12 @@
     <ClInclude Include="src\Origin\Object\player.h">
       <Filter>Object\プレイヤー</Filter>
     </ClInclude>
+    <ClInclude Include="src\Origin\Object\enemy_move.h">
+      <Filter>Object\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Origin\Object\enemy_gravity.h">
+      <Filter>Object\敵</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\appEnv.cpp">
@@ -258,6 +264,12 @@
     </ClCompile>
     <ClCompile Include="src\Origin\Object\player.cpp">
       <Filter>Object\プレイヤー</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Origin\Object\enemy_move.cpp">
+      <Filter>Object\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Origin\Object\enemy_gravity.cpp">
+      <Filter>Object\敵</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
