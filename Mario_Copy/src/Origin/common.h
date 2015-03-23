@@ -9,6 +9,11 @@ namespace common {
     WIDTH = 1200,
     HEIGHT = 900,
   };
+
+  enum Direction{
+    LEFT,
+    RIGHT
+  };
 }
 
 

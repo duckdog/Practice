@@ -14,6 +14,6 @@ public:
 
 private:
 
-  const float GRAVITY_POWER = 0.1f;
+  const float GRAVITY_POWER = -1.0f;
   float m_velocity_y;
 };
