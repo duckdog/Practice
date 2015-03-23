@@ -20,3 +20,5 @@ private:
   std::unique_ptr<cPlayerMove> m_move;
   std::unique_ptr<cPlayerJump> m_jump;
 };
+
+//　お試しプッシュ 2015/3/23
