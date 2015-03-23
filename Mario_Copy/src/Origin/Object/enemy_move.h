@@ -8,11 +8,11 @@ public:
 
   cEnemyMove(cObject*);
 
-  void update();
+  void   update();
   float2 getPos();
+
 
 private:
 
   float2 m_pos;
-
 };
