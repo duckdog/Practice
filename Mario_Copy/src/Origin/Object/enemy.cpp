@@ -22,6 +22,6 @@ void cEnemy::update() {
 
 
 void cEnemy::draw() {
-  drawFillBox(m_move->getPos().x, m_move->getPos().y + m_gravity->getVelocity(),
+  drawFillBox(m_move->getPos().x, m_gravity->getVelocity(),
               50, 50, Color(1, 1, 1));
 }
