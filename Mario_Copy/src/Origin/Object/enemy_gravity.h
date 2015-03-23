@@ -6,7 +6,7 @@
 class cEnemyGravity : public cObjectInterface {
 public:
 
-  cEnemyGravity(cObject*);
+  cEnemyGravity(cEnemy*);
   
   void  update();
   float getVelocity();

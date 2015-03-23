@@ -1,4 +1,5 @@
 
+#include "player.h"
 #include "player_jump.h"
 
 
@@ -8,7 +9,7 @@ enum {
 };
 
 
-cPlayerJump::cPlayerJump(cObject* obj) :
+cPlayerJump::cPlayerJump(cPlayer* obj) :
 cObjectInterface(obj),
 m_jump_power(0.0f),
 m_velocity(0.0f) {
@@ -17,6 +18,8 @@ m_velocity(0.0f) {
 
 void cPlayerJump::update() {
   if (isJump()) return;
+
+  m_player->isMoving();
 
   if (env::getInstance().isJump()) {
     m_jump_power = 0.0f;

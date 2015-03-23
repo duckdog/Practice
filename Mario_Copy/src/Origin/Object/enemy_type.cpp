@@ -2,7 +2,7 @@
 #include "enemy_type.h"
 
 
-cEnemyType::cEnemyType(cObject* obj) :
+cEnemyType::cEnemyType(cEnemy* obj) :
 cObjectInterface(obj){}
 
 

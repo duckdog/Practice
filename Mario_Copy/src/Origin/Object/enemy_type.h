@@ -7,7 +7,7 @@
 class cEnemyType : public cObjectInterface {
 public:
 
-  cEnemyType(cObject*);
+  cEnemyType(cEnemy*);
 
   void update();
 

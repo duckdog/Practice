@@ -3,6 +3,11 @@
 #include "object_interface.h"
 
 
-cObjectInterface::cObjectInterface(cObject* obj) :
-m_obj(obj) {
+cObjectInterface::cObjectInterface(cPlayer* obj) :
+m_player(obj) {
+}
+
+
+cObjectInterface::cObjectInterface(cEnemy* obj) :
+m_enemy(obj) {
 }

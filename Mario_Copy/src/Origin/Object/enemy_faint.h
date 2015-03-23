@@ -6,7 +6,7 @@
 class cEnemyFaint : public cObjectInterface {
 public:
 
-  cEnemyFaint(cObject*);
+  cEnemyFaint(cEnemy*);
 
   void update();
   bool isFaint();

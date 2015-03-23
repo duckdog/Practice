@@ -7,7 +7,7 @@
 class cPlayerJump : public cObjectInterface {
 public:
 
-  cPlayerJump(cObject*);
+  cPlayerJump(cPlayer*);
 
   void update();
   float getJumpPower() const;

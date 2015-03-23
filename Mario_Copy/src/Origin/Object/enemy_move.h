@@ -6,7 +6,7 @@
 class cEnemyMove : public cObjectInterface {
 public:
 
-  cEnemyMove(cObject*);
+  cEnemyMove(cEnemy*);
 
   void   update();
   float2 getPos();
