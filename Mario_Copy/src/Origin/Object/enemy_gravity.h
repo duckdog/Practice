@@ -8,7 +8,7 @@ public:
 
   cEnemyGravity(cObject*);
   
-  void update();
+  void  update();
   float getVelocity();
 
 

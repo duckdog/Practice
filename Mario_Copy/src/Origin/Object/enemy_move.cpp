@@ -8,7 +8,7 @@ m_pos(float2(0.0f, 0.0f)){}
 
 
 void cEnemyMove::update(){
-
+  
 }
 
 float2 cEnemyMove::getPos(){

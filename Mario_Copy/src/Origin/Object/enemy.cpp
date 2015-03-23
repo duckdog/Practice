@@ -8,6 +8,9 @@ cEnemy::cEnemy() {
 
 
 void cEnemy::componentInit(){
+  if (m_type == nullptr)
+    m_type = std::make_shared<cEnemyType>(this);
+
   if (m_move == nullptr)
     m_move = std::make_shared<cEnemyMove>(this);
 
