@@ -5,10 +5,15 @@
 
 
 class cPlayerMove : public cObjectInterface {
-  Transform m_vector;
-
 public:
-  cPlayerMove(cObject*);
+
+  cPlayerMove(cPlayer*);
 
   void update();
+  bool isMoving() const;
+
+
+private:
+
+  Transform m_vector;
 };

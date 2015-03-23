@@ -2,15 +2,18 @@
 #pragma once
 #include "../common.h"
 
-class cObject;
+class cPlayer;
+class cEnemy;
 
 
 class cObjectInterface {
 protected:
 
-  cObject* m_obj;
+  cPlayer* m_player;
+  cEnemy*  m_enemy;
 
-  cObjectInterface(cObject* obj);
+  cObjectInterface(cPlayer* obj);
+  cObjectInterface(cEnemy* obj);
 
   virtual void update() = 0;
 };

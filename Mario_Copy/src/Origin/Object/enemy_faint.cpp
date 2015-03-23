@@ -2,15 +2,17 @@
 #include "enemy_faint.h"
 
 
-cEnemyFaint::cEnemyFaint(cObject* obj) :
+cEnemyFaint::cEnemyFaint(cEnemy* obj) :
 cObjectInterface(obj),
-m_faint_status(ACTIVE){}
+m_faint_status(ACTIVE) {
+}
 
 
-void cEnemyFaint::update(){
+void cEnemyFaint::update() {
 
 }
 
-bool cEnemyFaint::isFaint(){
+
+bool cEnemyFaint::isFaint() {
   return m_faint_status == FAINT;
 }

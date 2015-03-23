@@ -6,7 +6,7 @@
 class cEnemyLife : public cObjectInterface {
 public:
 
-  cEnemyLife(cObject*);
+  cEnemyLife(cEnemy*);
 
   void  update();
   short getLife();
