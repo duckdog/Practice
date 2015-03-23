@@ -163,6 +163,15 @@
     <ClInclude Include="src\Origin\Object\enemy_gravity.h">
       <Filter>Object\敵</Filter>
     </ClInclude>
+    <ClInclude Include="src\Origin\Object\enemy_type.h">
+      <Filter>Object\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Origin\Object\enemy_life.h">
+      <Filter>Object\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Origin\Object\enemy_faint.h">
+      <Filter>Object\敵</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\appEnv.cpp">
@@ -269,6 +278,15 @@
       <Filter>Object\敵</Filter>
     </ClCompile>
     <ClCompile Include="src\Origin\Object\enemy_gravity.cpp">
+      <Filter>Object\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Origin\Object\enemy_type.cpp">
+      <Filter>Object\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Origin\Object\enemy_life.cpp">
+      <Filter>Object\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Origin\Object\enemy_faint.cpp">
       <Filter>Object\敵</Filter>
     </ClCompile>
   </ItemGroup>

@@ -12,4 +12,6 @@ void cTitle::update() {
 
 
 void cTitle::draw() {
+  m_font.draw("‰º…“¹‚Ìí‚¢i‰¼j", Vec2f(0, 0), Color::white);
+  m_font.draw("`“DÀ•Ò`", Vec2f(0, -50), Color::yellow);
 }

@@ -37,8 +37,11 @@
     <ClInclude Include="src\lib\wav.hpp" />
     <ClInclude Include="src\Origin\common.h" />
     <ClInclude Include="src\Origin\Object\enemy.h" />
+    <ClInclude Include="src\Origin\Object\enemy_faint.h" />
     <ClInclude Include="src\Origin\Object\enemy_gravity.h" />
+    <ClInclude Include="src\Origin\Object\enemy_life.h" />
     <ClInclude Include="src\Origin\Object\enemy_move.h" />
+    <ClInclude Include="src\Origin\Object\enemy_type.h" />
     <ClInclude Include="src\Origin\Object\object.hpp" />
     <ClInclude Include="src\Origin\Object\object_interface.h" />
     <ClInclude Include="src\Origin\Object\player.h" />
@@ -78,8 +81,11 @@
     <ClCompile Include="src\lib\wav.cpp" />
     <ClCompile Include="src\Origin\main.cpp" />
     <ClCompile Include="src\Origin\Object\enemy.cpp" />
+    <ClCompile Include="src\Origin\Object\enemy_faint.cpp" />
     <ClCompile Include="src\Origin\Object\enemy_gravity.cpp" />
+    <ClCompile Include="src\Origin\Object\enemy_life.cpp" />
     <ClCompile Include="src\Origin\Object\enemy_move.cpp" />
+    <ClCompile Include="src\Origin\Object\enemy_type.cpp" />
     <ClCompile Include="src\Origin\Object\object_interface.cpp" />
     <ClCompile Include="src\Origin\Object\player.cpp" />
     <ClCompile Include="src\Origin\Object\player_jump.cpp" />
