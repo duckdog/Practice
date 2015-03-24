@@ -10,9 +10,15 @@ namespace common {
     HEIGHT = 900,
   };
 
-  enum Direction{
+  enum Direction {
     LEFT,
     RIGHT
+  };
+
+  enum EnemyID {
+    SHELLCREEPERT,   // カメ
+    SIDESTEPPER,     // カニ
+    FIGHTERFLY,      // ハエ
   };
 }
 
