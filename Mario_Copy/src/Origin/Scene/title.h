@@ -23,8 +23,11 @@ private:
   };
   std::vector<std::string> m_string;
 
+  Texture m_test;
   short m_blink;
 
   void titleLogo();
   void startButton();
+
+  void testDraw();
 };

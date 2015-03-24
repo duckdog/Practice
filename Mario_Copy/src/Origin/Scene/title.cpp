@@ -14,6 +14,9 @@ m_blink(0) {
   for (auto& it : StringData) {
     m_string.emplace_back(it);
   }
+
+  // FIXME: 画像データ渡してないので、コメントアウト
+  //m_test = Texture("res/png/title_back.png");
 }
 
 
@@ -24,6 +27,7 @@ void cTitle::update() {
 
 
 void cTitle::draw() {
+  //testDraw();
   titleLogo();
   startButton();
 }
@@ -44,4 +48,13 @@ void cTitle::startButton() {
   const Color BtnColor = Color(1, 1, 0, (m_blink / 30) % 2);
 
   m_font.draw(Button, Vec2f(StringPosX, 0), BtnColor);
+}
+
+
+void cTitle::testDraw() {
+  const Vec2f pos(-common::WIDTH / 2, -common::HEIGHT / 2);
+
+  drawTextureBox(pos.x(), pos.y(), common::WIDTH, common::HEIGHT,
+                 0, 0, 1024, 1024,
+                 m_test, Color::white);
 }
