@@ -172,6 +172,7 @@
     <ClInclude Include="src\Origin\Object\enemy_faint.h">
       <Filter>Object\敵</Filter>
     </ClInclude>
+    <ClInclude Include="src\Origin\collision.hpp" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\lib\appEnv.cpp">

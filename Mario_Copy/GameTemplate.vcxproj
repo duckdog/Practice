@@ -35,6 +35,7 @@
     <ClInclude Include="src\lib\utils.hpp" />
     <ClInclude Include="src\lib\vector.hpp" />
     <ClInclude Include="src\lib\wav.hpp" />
+    <ClInclude Include="src\Origin\collision.hpp" />
     <ClInclude Include="src\Origin\common.h" />
     <ClInclude Include="src\Origin\Object\enemy.h" />
     <ClInclude Include="src\Origin\Object\enemy_faint.h" />
