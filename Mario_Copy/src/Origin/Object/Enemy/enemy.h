@@ -1,7 +1,7 @@
 
 #pragma once
-#include "object.hpp"
-#include "../System/environment.h"
+#include "../object.hpp"
+#include "../../System/environment.h"
 #include "enemy_type.h"
 #include "enemy_gravity.h"
 #include "enemy_move.h"

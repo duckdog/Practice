@@ -1,7 +1,7 @@
 
 #pragma once
 #include "../common.h"
-#include "../Object/player.h"
+#include "../Object/Player/player.h"
 
 
 // TIPS: 動作確認　プレイヤー

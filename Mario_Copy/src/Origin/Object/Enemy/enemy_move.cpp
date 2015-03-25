@@ -4,14 +4,15 @@
 
 cEnemyMove::cEnemyMove(cEnemy* obj) :
 cObjectInterface(obj),
-m_pos(float2(0.0f, 0.0f)){}
-
-
-void cEnemyMove::update(){
-  
+m_pos(float2(0.0f, 0.0f)) {
 }
 
 
-float2 cEnemyMove::getPos(){
+void cEnemyMove::update() {
+
+}
+
+
+float2 cEnemyMove::getPos() {
   return m_pos;
 }

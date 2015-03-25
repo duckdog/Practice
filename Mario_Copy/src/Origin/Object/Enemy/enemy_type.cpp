@@ -3,9 +3,10 @@
 
 
 cEnemyType::cEnemyType(cEnemy* obj) :
-cObjectInterface(obj){}
+cObjectInterface(obj) {
+}
 
 
-void cEnemyType::update(){
-  
+void cEnemyType::update() {
+
 }

@@ -1,7 +1,7 @@
 
 #pragma once
 #include "../common.h"
-#include "../Object/enemy.h"
+#include "../Object/Enemy/enemy.h"
 
 
 // TIPS: “®ìŠm”F@“G

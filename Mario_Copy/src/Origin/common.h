@@ -12,13 +12,15 @@ namespace common {
 
   enum Direction {
     LEFT,
-    RIGHT
+    RIGHT,
   };
 
   enum EnemyID {
-    SHELLCREEPERT,   // カメ
-    SIDESTEPPER,     // カニ
-    FIGHTERFLY,      // ハエ
+    SHELL_CREEPERT,   // カメ
+    SIDE_STEPPER,     // カニ
+    FIGHTER_FLY,      // ハエ
+
+    All_Enemy,
   };
 }
 

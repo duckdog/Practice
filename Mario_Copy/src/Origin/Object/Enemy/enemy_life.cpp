@@ -3,19 +3,20 @@
 
 
 cEnemyLife::cEnemyLife(cEnemy* obj) :
-cObjectInterface(obj){}
+cObjectInterface(obj) {
+}
 
 
-void cEnemyLife::update(){
+void cEnemyLife::update() {
 
 }
 
 
-short cEnemyLife::getLife(){
+short cEnemyLife::getLife() {
   return m_life;
 }
 
 
-bool cEnemyLife::isDead(){
+bool cEnemyLife::isDead() {
   return m_life == 0;
 }
