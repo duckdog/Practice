@@ -10,6 +10,7 @@ m_title(font) {
 
 
 void cTest_Interface::update() {
+  m_title.update();
 }
 
 

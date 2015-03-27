@@ -9,7 +9,9 @@ m_faint_status(ACTIVE) {
 
 
 void cEnemyFaint::update() {
-
+  if (env::getInstance().isJump()) {
+    m_faint_status = FAINT;
+  }
 }
 
 

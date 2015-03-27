@@ -28,11 +28,11 @@
     <Filter Include="System\インターフェイス">
       <UniqueIdentifier>{a338acd8-7361-4868-a47d-f53419e35d4c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\敵">
-      <UniqueIdentifier>{f3cbedf7-7d8f-4f82-b326-625fbcb66d78}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Object\プレイヤー">
-      <UniqueIdentifier>{3371fddd-c987-4e65-8a87-7bf6c7109c25}</UniqueIdentifier>
+      <UniqueIdentifier>{9128190d-f258-4bd4-a939-49725015783d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\敵">
+      <UniqueIdentifier>{54464654-8081-4031-961e-0999c1ae03ef}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -145,32 +145,35 @@
     <ClInclude Include="src\Origin\Object\object.hpp">
       <Filter>Object</Filter>
     </ClInclude>
-    <ClInclude Include="src\Origin\Object\enemy.h">
-      <Filter>Object\敵</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Origin\Object\player_move.h">
+    <ClInclude Include="src\Origin\Object\Player\player.h">
       <Filter>Object\プレイヤー</Filter>
     </ClInclude>
-    <ClInclude Include="src\Origin\Object\player_jump.h">
+    <ClInclude Include="src\Origin\Object\Player\player_jump.h">
       <Filter>Object\プレイヤー</Filter>
     </ClInclude>
-    <ClInclude Include="src\Origin\Object\player.h">
+    <ClInclude Include="src\Origin\Object\Player\player_move.h">
       <Filter>Object\プレイヤー</Filter>
     </ClInclude>
-    <ClInclude Include="src\Origin\Object\enemy_move.h">
+    <ClInclude Include="src\Origin\Object\Enemy\enemy.h">
       <Filter>Object\敵</Filter>
     </ClInclude>
-    <ClInclude Include="src\Origin\Object\enemy_gravity.h">
+    <ClInclude Include="src\Origin\Object\Enemy\enemy_faint.h">
       <Filter>Object\敵</Filter>
     </ClInclude>
-    <ClInclude Include="src\Origin\Object\enemy_type.h">
+    <ClInclude Include="src\Origin\Object\Enemy\enemy_gravity.h">
       <Filter>Object\敵</Filter>
     </ClInclude>
-    <ClInclude Include="src\Origin\Object\enemy_life.h">
+    <ClInclude Include="src\Origin\Object\Enemy\enemy_life.h">
       <Filter>Object\敵</Filter>
     </ClInclude>
-    <ClInclude Include="src\Origin\Object\enemy_faint.h">
+    <ClInclude Include="src\Origin\Object\Enemy\enemy_move.h">
       <Filter>Object\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Origin\Object\Enemy\enemy_type.h">
+      <Filter>Object\敵</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Origin\Object\collision.h">
+      <Filter>Object</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -262,32 +265,35 @@
     <ClCompile Include="src\Origin\System\gadget.cpp">
       <Filter>System\インターフェイス</Filter>
     </ClCompile>
-    <ClCompile Include="src\Origin\Object\enemy.cpp">
-      <Filter>Object\敵</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Origin\Object\player_move.cpp">
+    <ClCompile Include="src\Origin\Object\Player\player.cpp">
       <Filter>Object\プレイヤー</Filter>
     </ClCompile>
-    <ClCompile Include="src\Origin\Object\player_jump.cpp">
+    <ClCompile Include="src\Origin\Object\Player\player_jump.cpp">
       <Filter>Object\プレイヤー</Filter>
     </ClCompile>
-    <ClCompile Include="src\Origin\Object\player.cpp">
+    <ClCompile Include="src\Origin\Object\Player\player_move.cpp">
       <Filter>Object\プレイヤー</Filter>
     </ClCompile>
-    <ClCompile Include="src\Origin\Object\enemy_move.cpp">
+    <ClCompile Include="src\Origin\Object\Enemy\enemy.cpp">
       <Filter>Object\敵</Filter>
     </ClCompile>
-    <ClCompile Include="src\Origin\Object\enemy_gravity.cpp">
+    <ClCompile Include="src\Origin\Object\Enemy\enemy_faint.cpp">
       <Filter>Object\敵</Filter>
     </ClCompile>
-    <ClCompile Include="src\Origin\Object\enemy_type.cpp">
+    <ClCompile Include="src\Origin\Object\Enemy\enemy_gravity.cpp">
       <Filter>Object\敵</Filter>
     </ClCompile>
-    <ClCompile Include="src\Origin\Object\enemy_life.cpp">
+    <ClCompile Include="src\Origin\Object\Enemy\enemy_life.cpp">
       <Filter>Object\敵</Filter>
     </ClCompile>
-    <ClCompile Include="src\Origin\Object\enemy_faint.cpp">
+    <ClCompile Include="src\Origin\Object\Enemy\enemy_move.cpp">
       <Filter>Object\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Origin\Object\Enemy\enemy_type.cpp">
+      <Filter>Object\敵</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Origin\Object\collision.cpp">
+      <Filter>Object</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

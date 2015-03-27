@@ -1,6 +1,6 @@
 
 #pragma once
-#include "object_interface.h"
+#include "../object_interface.h"
 #include <map>
 
 
@@ -14,18 +14,12 @@ public:
 
 private:
 
-  enum EnemyID {
-    SHELLCREEPERT,   // カメ
-    SIDESTEPPER,     // カニ
-    FIGHTERFLY,      // ハエ
-  };
-
   struct EnemyStatus {
     float   move_speed;
     float   gravity;
     Texture image;
   };
 
-  std::map<EnemyID, EnemyStatus> status;
+  std::map<common::EnemyID, EnemyStatus> status;
 
 };

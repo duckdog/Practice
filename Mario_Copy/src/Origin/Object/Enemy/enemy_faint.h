@@ -1,6 +1,7 @@
 
 #pragma once
-#include "object_interface.h"
+#include "../object_interface.h"
+#include "../../System/environment.h"
 
 
 class cEnemyFaint : public cObjectInterface {

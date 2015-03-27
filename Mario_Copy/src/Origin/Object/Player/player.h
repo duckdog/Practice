@@ -1,6 +1,6 @@
 
 #pragma once
-#include "object.hpp"
+#include "../object.hpp"
 #include "player_move.h"
 #include "player_jump.h"
 #include <memory>
