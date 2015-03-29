@@ -9,7 +9,7 @@ m_faint_status(ACTIVE) {
 
 
 void cEnemyFaint::update() {
-  if (env::getInstance().isJump()) {
+  if (env::get()->isPushKey(Key::P1_JUMP)) {
     m_faint_status = FAINT;
   }
 }

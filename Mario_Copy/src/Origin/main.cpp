@@ -3,7 +3,7 @@
 
 
 int main() {
-  env::getInstance();
+  env::get();
   cGamePlayer game;
   game.run();
 }
