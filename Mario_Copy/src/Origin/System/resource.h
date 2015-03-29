@@ -5,8 +5,12 @@
 
 
 enum SpriteID {
-  Player,
-  Enemy,
+  Player1,
+  Player2,
+
+  ShellCreepert,
+  SideStepper,
+  FighterFly,
 
   Floor,
   Pipe,
@@ -18,14 +22,16 @@ enum SpriteID {
 class cResource {
 public:
 
-  static cResource getInstance();
+  static cResource* get();
 
-  Texture getSprite(const SpriteID);
+  Texture* Sprite(const SpriteID);
   void removeSprite(const SpriteID);
 
 private:
 
   cResource();
+
+  void spriteInit();
 
   std::map<SpriteID, Texture> m_sprite;
 };

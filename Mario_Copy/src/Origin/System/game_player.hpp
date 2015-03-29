@@ -5,16 +5,21 @@
 
 
 class cGamePlayer {
-  cSceneManager m_scene;
-
 public:
-  cGamePlayer() {
-  }
+
+  cGamePlayer() = default;
 
   void run() {
-    while (env::getInstance().isOpen()) {
-      m_scene.update();
-      m_scene.draw();
+    m_manager.start();
+
+    while (env::get()->isOpen()) {
+      m_manager.update();
+      m_manager.draw();
     }
   }
+
+
+private:
+
+  cSceneManager m_manager;
 };

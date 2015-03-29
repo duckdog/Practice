@@ -5,7 +5,7 @@
 
 enum {
   JUMP_POWER = 20,
-  GRAVITY = 1,
+  GRAVITY    = 1,
 };
 
 
@@ -21,7 +21,7 @@ void cPlayerJump::update() {
 
   m_player->isMoving();
 
-  if (env::getInstance().isJump()) {
+  if (env::get()->isPushKey(Key::P1_JUMP)) {
     m_jump_power = 0.0f;
     m_velocity = JUMP_POWER;
   }
