@@ -14,6 +14,11 @@ public:
 
 private:
 
+  // ‰æ–Ê’[î•ñ
+  common::WindowEdge edge;
+
+
+
   enum MoveSpeed{
     SPEED = 5
   };
