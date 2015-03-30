@@ -17,11 +17,16 @@ private:
   // ‰æ–Ê’[î•ñ
   common::WindowEdge edge;
 
-
+  void loop();
 
   enum MoveSpeed{
     SPEED = 5
   };
+
+  struct MoveStatus{
+    float speed = MoveSpeed::SPEED;
+    const float sign  = -1;
+  }m_move_stat;
 
   float m_pos_x;
 };
