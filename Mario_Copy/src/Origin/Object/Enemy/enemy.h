@@ -14,10 +14,12 @@ public:
 
   cEnemy();
 
+  void componentInit();
+
   void update();
   void draw();
 
-  void componentInit();
+  bool isFaint();
 
 
 private:

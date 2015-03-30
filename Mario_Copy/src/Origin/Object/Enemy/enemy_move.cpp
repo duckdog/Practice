@@ -4,15 +4,17 @@
 
 cEnemyMove::cEnemyMove(cEnemy* obj) :
 cObjectInterface(obj),
-m_pos(float2(0.0f, 0.0f)) {
+m_pos_x(0) {
 }
 
 
 void cEnemyMove::update() {
+  // if (m_enemy->isFaint()) return;
 
+  m_pos_x += SPEED;
 }
 
 
-float2 cEnemyMove::getPos() {
-  return m_pos;
+float cEnemyMove::getPosX() {
+  return m_pos_x;
 }
