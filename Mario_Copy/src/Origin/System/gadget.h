@@ -8,7 +8,7 @@ public:
 
   // TIPS: コンストラクタではなく、
   //     : この関数を使って機能を提供する
-  static cGadget draw();
+  static cGadget* draw();
 
   // メッセージウィンドウの描画
   void msgBox(const float2& pos,

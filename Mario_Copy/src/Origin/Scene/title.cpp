@@ -1,5 +1,6 @@
 
 #include "title.h"
+#include "../System/gadget.h"
 
 
 cTitle::cTitle(Font& font) :
@@ -46,6 +47,10 @@ void cTitle::startButton() {
   const std::string& Button = m_string[StartButton];
   const float StringPosX = -m_font.drawSize(Button).x() / 2;
   const Color BtnColor = Color(1, 1, 0, (m_blink / 30) % 2);
+
+  gadget::draw()->msgBox(float2(StringPosX - 20, -20),
+                         float2(-StringPosX * 2 + 50, 70),
+                         Color::blue);
 
   m_font.draw(Button, Vec2f(StringPosX, 0), BtnColor);
 }
