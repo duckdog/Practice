@@ -10,6 +10,14 @@ namespace common {
     HEIGHT = 900,
   };
 
+  // 画面の端情報
+  struct WindowEdge {
+    float top    =  HEIGHT * 0.5f;  // 画面上端
+    float bottom = -HEIGHT * 0.5f;  // 画面下端
+    float right  =  WIDTH  * 0.5f;  // 画面右端
+    float left   = -WIDTH  * 0.5f;  // 画面左端
+  };
+
   enum Direction {
     LEFT,
     RIGHT,
