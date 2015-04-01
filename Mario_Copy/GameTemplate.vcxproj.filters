@@ -286,14 +286,14 @@
     <ClCompile Include="src\Origin\Object\Enemy\enemy_life.cpp">
       <Filter>Object\敵</Filter>
     </ClCompile>
-    <ClCompile Include="src\Origin\Object\Enemy\enemy_move.cpp">
-      <Filter>Object\敵</Filter>
-    </ClCompile>
     <ClCompile Include="src\Origin\Object\Enemy\enemy_type.cpp">
       <Filter>Object\敵</Filter>
     </ClCompile>
     <ClCompile Include="src\Origin\Object\collision.cpp">
       <Filter>Object</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Origin\Object\Enemy\enemy_move.cpp">
+      <Filter>Object\敵</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>

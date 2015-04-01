@@ -9,10 +9,24 @@ public:
   cEnemyMove(cEnemy*);
 
   void   update();
-  float2 getPos();
+  float  getPosX();
 
 
 private:
 
-  float2 m_pos;
+  // âÊñ í[èÓïÒ
+  common::WindowEdge edge;
+
+  void loop();
+
+  enum MoveSpeed{
+    SPEED = 5
+  };
+
+  struct MoveStatus{
+    float speed = MoveSpeed::SPEED;
+    const float sign  = -1;
+  }m_move_stat;
+
+  float m_pos_x;
 };

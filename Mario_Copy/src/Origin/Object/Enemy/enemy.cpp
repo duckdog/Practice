@@ -23,7 +23,7 @@ void cEnemy::componentInit() {
 
 
 void cEnemy::update() {
-  //m_gravity->update();
+  m_move->update();
   m_faint->update();
   if (m_faint->isFaint()){
     color = Color(1, 0, 0);
@@ -33,8 +33,12 @@ void cEnemy::update() {
   }
 }
 
-
 void cEnemy::draw() {
-  drawFillBox(m_move->getPos().x, m_gravity->getVelocity(),
+  drawFillBox(m_move->getPosX(), m_gravity->getVelocity(),
               50, 50, color);
+}
+
+
+bool cEnemy::isFaint(){
+  return m_faint->isFaint();
 }
