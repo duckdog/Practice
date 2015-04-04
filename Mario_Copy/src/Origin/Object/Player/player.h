@@ -20,7 +20,9 @@ public:
 
 
 private:
-
+  
   std::unique_ptr<cPlayerMove> m_move;
   std::unique_ptr<cPlayerJump> m_jump;
+	
+  Color m_color;
 };

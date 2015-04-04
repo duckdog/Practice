@@ -22,9 +22,6 @@
     <Filter Include="System\環境">
       <UniqueIdentifier>{c51ef0cb-af01-4cdf-9fa5-3ca628d4c164}</UniqueIdentifier>
     </Filter>
-    <Filter Include="System\リソース管理">
-      <UniqueIdentifier>{48667604-4e77-4f1e-9ab3-47dd99cd1a79}</UniqueIdentifier>
-    </Filter>
     <Filter Include="System\インターフェイス">
       <UniqueIdentifier>{a338acd8-7361-4868-a47d-f53419e35d4c}</UniqueIdentifier>
     </Filter>
@@ -33,6 +30,9 @@
     </Filter>
     <Filter Include="Object\敵">
       <UniqueIdentifier>{54464654-8081-4031-961e-0999c1ae03ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="System\環境\リソース管理">
+      <UniqueIdentifier>{48667604-4e77-4f1e-9ab3-47dd99cd1a79}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -119,7 +119,7 @@
       <Filter>System\シーン管理</Filter>
     </ClInclude>
     <ClInclude Include="src\Origin\System\resource.h">
-      <Filter>System\リソース管理</Filter>
+      <Filter>System\環境\リソース管理</Filter>
     </ClInclude>
     <ClInclude Include="src\Origin\Scene\test_enemy.h">
       <Filter>Scene</Filter>
@@ -248,7 +248,7 @@
       <Filter>System\シーン管理</Filter>
     </ClCompile>
     <ClCompile Include="src\Origin\System\resource.cpp">
-      <Filter>System\リソース管理</Filter>
+      <Filter>System\環境\リソース管理</Filter>
     </ClCompile>
     <ClCompile Include="src\Origin\Scene\test_enemy.cpp">
       <Filter>Scene</Filter>

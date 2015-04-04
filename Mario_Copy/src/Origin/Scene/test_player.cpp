@@ -3,6 +3,7 @@
 
 
 cTest_Player::cTest_Player() {
+	m_player.componentInit();
 }
 
 

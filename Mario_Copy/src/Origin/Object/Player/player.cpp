@@ -7,10 +7,13 @@ cPlayer::cPlayer() {
 
 
 void cPlayer::update() {
+	m_move->update();
 }
 
 
 void cPlayer::draw() {
+	drawFillBox(m_move->getPos().x(),m_move->getPos().y(),
+				40,40,Color(1,0,0));
 }
 
 

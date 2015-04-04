@@ -10,10 +10,14 @@ public:
   cPlayerMove(cPlayer*);
 
   void update();
+  void keyControl();
   bool isMoving() const;
 
+  Vec2f getPos();
 
 private:
-
-  Transform m_vector;
+  
+  Vec2f m_pos;
+  const float  m_speed = 2.0f;
+  
 };
